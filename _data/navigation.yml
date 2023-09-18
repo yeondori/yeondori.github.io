@@ -1,0 +1,34 @@
+# main links
+main:
+  - title: "Home"
+    url: https://yeondori.github.io/
+
+  - title: "About"
+    url: /about/
+
+  - title: "GitHub"
+    url: https://github.com/yeondori
+
+  # - title: "Projects"
+  #   url: /projects/
+
+  - title: "Categories"
+    url: /categories/
+
+# sidebar navigation (categories)
+# 2022.02.15 sidebar update : simple ver.
+categories:
+  - title: "ERICA"
+    children:
+      - title: "Data Structure"
+        url: /categories/dataStructures
+      - title: "Data Analytics"
+        url: /categories/dataAnalytics/
+      - title: "Capstone"
+        url: /categories/capstone/
+  - title: "SPRING"
+    url: /categories/spring/
+  - title: "JPA"
+    url: /categories/jpa/
+  - title: "BOOK"
+    url: /categories/book/
