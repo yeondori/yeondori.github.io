@@ -2,7 +2,7 @@
 title: "[과제] 01 배열 속 특정한 값 x 찾기"
 
 excerpt: "데이터 구조론 과제"
-categories: [Blogging, Tutorial]
+categories: [ERICA, Data Structures]
 tags: [C++, Data Structures]
 date: 2023-09-18
 last_modified_at: 2023-09-18
