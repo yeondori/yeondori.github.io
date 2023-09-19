@@ -23,19 +23,16 @@ timezone: Asia/Seoul
 
 title:  Yeondori # the main title
 
-tagline:  간지나는 DevLog 갖고 싶다 # it will display as the sub-title
+tagline:  천재 멋쟁이 개발자가 되고 싶어요 # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
-  기록하는 거 왜 이렇게 힘드냐
+  
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: "https://yeondori.github.io"
 
 github:
   username: yeondori # change to your github username
-
-#twitter:
-#  username: twitter_username # change to your twitter username
 
 social:
   # Change to your full name.
@@ -44,10 +41,8 @@ social:
   email:  yeonseo.jung0@gmail.com # change to your email address
   links:
     # The first element serves as the copyright owner's link
-    # https://twitter.com/username # change to your twitter homepage
     - https://github.com/yeondori # change to your github homepage
     # Uncomment below to add more social links
-    # - https://www.facebook.com/username
     # - https://www.linkedin.com/in/username
 
 google_site_verification: # fill in to your verification string
