@@ -1,5 +1,5 @@
 ---
-title: "[과제] 03 Structure, Binary Search, 2차원 배열"
+title: "[데이터 구조론][과제] 03 Structure, Binary Search, 2차원 배열"
 
 excerpt: "데이터 구조론 과제"
 categories: [ERICA, Data Structures]

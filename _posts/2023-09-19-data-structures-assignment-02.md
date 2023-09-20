@@ -1,5 +1,5 @@
 ---
-title: "[과제] 02 함수를 이용하여 배열 속 원하는 위치를 출력하기"
+title: "[데이터 구조론][과제] 02 함수를 이용하여 배열 속 원하는 위치를 출력하기"
 
 excerpt: "데이터 구조론 과제"
 categories: [ERICA, Data Structures]
