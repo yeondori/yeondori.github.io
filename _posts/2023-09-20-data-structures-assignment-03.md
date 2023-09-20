@@ -1,44 +1,5 @@
-#include<iostream>
-#include <vector>
-using namespace std;
-
-int main() {
-vector<int> a = { 10, 20, 30, 40, 50, 70, 100 };
-
-int start = 0;
-int end = a.size()-1;
-int mid = (start+end)/2;
-
-bool find = false;
-int idx;
-
-int x;
-cout << "탐색하고자 하는 값을 입력하세요." << endl;
-cin >> x;
-
-while(start<=end) {
-if (x<a[mid]) {
-end = mid;
-mid = (start+end)/2;
-}
-else if (x>a[mid]){
-start = mid+1;
-mid = (start+end)/2;
-}
-else {
-find = true;
-idx = mid + 1;
-
-  break;
-}
-}
-
-if (find) {
-cout << x << "의 위치는 " << idx << "번째 입니다." << endl;
-} else cout << x << "는 존재하지 않는 값입니다." << endl;
-
-return 0;
-}title: "[과제] 03 Structure, Binary Search, 2차원 배열"
+---
+title: "[과제] 03 Structure, Binary Search, 2차원 배열"
 
 excerpt: "데이터 구조론 과제"
 categories: [ERICA, Data Structures]
@@ -46,7 +7,7 @@ tags: [C++, Data Structures]
 date: 2023-09-20
 last_modified_at: 2023-09-20
 render_with_liquid: false
--------------------------
+---
 
 2주차 과제는 2개였는데 3주차 과제는 무려 3개다.
 
@@ -60,7 +21,7 @@ render_with_liquid: false
 
 ### 프로그램 리스트
 
-#### 과제1 Structure
+#### **과제1** Structure
 
 ```cpp
 #include<iostream>
@@ -86,7 +47,7 @@ int main() {
 }
 
 ```
-#### 과제2 Binary Search
+#### **과제2** Binary Search
 
 ```cpp
 #include<iostream>
@@ -113,7 +74,7 @@ int main() {
     return 0;
 }
 ```
-#### 과제3 2차원 배열의 행,열, 총합 구하기
+#### **과제3** 2차원 배열의 행,열, 총합 구하기
 
 ```cpp
 #include<iostream>
@@ -195,11 +156,10 @@ int main()  {
 6. 값(7) < 중앙값(8)이므로 탐색 범위 (7,7)
 7. 탐색은 시작점이 끝점보다 커질 때까지 반복한다. (탐색값이 없을 경우도 존재하므로)
 
-이렇듯 이분탐색은 중앙값을 기준으로 절반씩 버려지기 때문에 시간 복잡도는 log_2(n)이다. 이떄 중앙값읜 배열의 길이가 짝수이든 홀수이든 결과와는 무관하다. [참고](https://charles098.tistory.com/133)
+이렇듯 이분탐색은 중앙값을 기준으로 절반씩 버려지기 때문에 시간 복잡도는 log_2(n)이다. 이떄 중앙값은 배열의 길이가 짝수이든 홀수이든 결과와는 무관하다. [참고](https://charles098.tistory.com/133)
 
 다시 구현해보았다. size 값을 가져오기 불편해서 vector를 사용했는데 아직도 어떤 자료구조를 선택해야 하는 건지는 어렵다.. 사실 이 정도 문제에선 array 그대로 사용해도 될 것 같긴 하다.
-함수로 탐색 부분과 출력 부분을 분리해봤고, 찾고자 하는 x값도 직접 입력받도록 했으며 값이 존재하지 않는 경우도 구현해 두었다. 
-
+함수로 탐색 부분과 출력 부분을 분리해봤고, 찾고자 하는 x값도 직접 입력받도록 했으며 값이 존재하지 않는 경우도 구현해 두었다.
 ```cpp
 #include<iostream>
 #include <vector>
@@ -310,4 +270,5 @@ return 0;
 
 ### ++ 
 vector vs list [참고](https://sueaty.tistory.com/59)
+
 vector 사용법 [참고](https://hwan-shell.tistory.com/119)
