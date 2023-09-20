@@ -144,8 +144,7 @@ int main()  {
 우선 **Binary Search(이진 탐색)** 는 리스트에서 검색 범위를 줄여 나가면서 검색 값을 찾는 알고리즘이다. 배열의 중앙값과 탐색하고자 하는 값을 비교하는 알고리즘이기 때문에 정렬된 리스트에만 사용할 수 있다는 단점이 있지만 검색이 반복될 때마다 검색 범위가 절반으로 줄기 때문에 속도가 빠르다는 장점이 있다.
 
 탐색 과정은 다음과 같다. [Image](https://en.wikipedia.org/wiki/Binary_search_algorithm)
-![img.png](img.png)
-
+![image](https://github.com/yeondori/yeondori.github.io/assets/93027942/3edddf24-2e2d-4d82-9718-f2be833ec1db)
 배열에서 찾고자 하는 값이 7인 경우를 예로 들면,
 
 1. 배열의 중앙에 있는 값(14)과 탐색하고자 하는 값(7)을 비교한다. 탐색의 시작점과 끝점은 각각 1, 71이다. (1,71)
