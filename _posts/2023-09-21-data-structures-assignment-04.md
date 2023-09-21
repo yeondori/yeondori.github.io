@@ -5,7 +5,7 @@ excerpt: "데이터 구조론 과제"
 categories: [ERICA, Data Structures]
 tags: [C++, Data Structures]
 date: 2023-09-21
-last_modified_at: 2023-09-21
+last_modified_at: 2023-09-22
 render_with_liquid: false
 ---
 - **과제1**: Structure
@@ -177,8 +177,8 @@ int main()  {
 이제는 최대 난관이었던 스도쿠 과제에는 도대체 뭐라고 소감 썼을 지 궁금하고 기대되는 지경이다.
 
 먼저 과제 1의 경우에는 student 구조체 내부에 나이와 이름을 가지고 있는 age_name 이라는 구조체가 들어가 있는 중첩 구조체의 형태이다. 이를 이용해 개별 학생의 성적과 전체 학생의 성적을 조회할 수 있어야 하는데, 사실상 구조체 내부의 average 변수를 활용하고 있지 않고 있다. 
-전체 평균을 계산하기 전에, 개별 학생의 성적 평균값을 먼저 계산해 average 변수에 넣어주는 함수를 생성했고, 전체 학생의 평균을 계산하는 함수와 출력 함수들도 따로 만들어 주었으며 조회하고자 하는 학생을 직접 입력받을 수 있도록 코드를 변경해보았다. 
-구조체와 포인터 개념이 부실해서 생각보다 시행착오가 많았고, 특히나 구조체 배열을 어떻게 함수 인자로 넘겨주어야 하는지도 어려웠다. 구조체와 포인터에 대해 좀 더 학습해봐야곘다.
+전체 평균을 계산하기 전에 개별 학생의 성적 평균값을 먼저 계산해 average 변수에 넣어주는 함수를 생성했고, 전체 학생의 평균을 계산하는 함수와 출력 함수들도 따로 만들어 주었으며 조회하고자 하는 학생을 직접 입력받을 수 있도록 코드를 변경해보았다. 
+구조체와 포인터 개념이 부실해서 생각보다 시행착오가 많았고, 특히나 구조체 배열을 어떻게 함수 인자로 넘겨주어야 하는지도 어려웠다. 사실 지금도 너무 지저분해서 추후에 수정을 다시 해봐야할 것 같다. 
 
 ```cpp
 #include<iostream>
@@ -198,7 +198,7 @@ struct Student {
 	double average;
 };
 
-//개별 학생 평균
+//특정 학생 평균
 void calculateOneAverage(Student *student) {
   
   int subjectNum = 0;
@@ -223,21 +223,24 @@ double calculateEveryAverage(struct Student* students, int studentNum){
 }
 
 //score 출력하기
-void printScore(int* score){
-  for(int i=0; i<sizeof(*score); i++) {
+void printScore(string name, int* score, int size){
+  cout << name << "의 성적: ";
+  for(int i=0; i<size; i++) {
     cout << score[i] << " " ;  
   }
+  cout << endl;
 }
 
 //개별 학생의 성적과 평균 출력
 void printOneScoreInfo(struct Student* students, int studentNum, string name) {
   bool exist = false;
-  
+
   for (int i=0; i<studentNum; i++) {
     if(name == students[i].ageName.name) {
-      cout << name << "의 성적: ";
-      printScore(students[i].score);
-      cout << ", 평균: " << students[i].average << endl;
+      int size = sizeof(students[i].score)/sizeof(int);
+      printScore(name, students[i].score, size);
+      
+      cout << name << "의 평균: " << students[i].average << endl;
       exist = true;
     }
   }
@@ -269,6 +272,55 @@ int main() {
   printOneScoreInfo(s, studentNum, name);
 }
 ```
-과제 2의 Selection Sort는 배열 내의 최솟값을 찾아 배열의 첫번째 값과 교환하고, 교환된 첫번째 값을 제외한 나머지 배열에서 이를 반복하는 식으로 정렬하는 방식이다. 
+과제 2의 Selection Sort는 배열 내의 최솟값을 찾아 배열의 첫번째 값과 교환하고, 교환된 첫번째 값을 제외한 나머지 배열에서 이를 반복하는 식으로 정렬하는 방식이다. 사실 과제2는 크게 달라진 부분이 없었고 코드를 좀 더 간결하게 줄여보려고 해도 이게 최선이었다... 그리고 굉장히 비효율적이다.
 
+```cpp
+#include<iostream>
+using namespace std;
 
+void selection_sort(int a[], int size);
+void print(int* a, int size);
+
+int main()  {
+const int size = 8;
+int a[size] = { 10, 5, 20, 30, 100,1,15,25 };
+cout << "기존 배열: ";
+print(a,size);
+
+selection_sort(a,size);
+
+cout << endl << "정렬된 배열 : " << endl;
+print(a,size);
+
+return 0;
+}
+
+void selection_sort(int a[], int size) {
+
+for (int i=0; i<size; i++) {
+int min = 2147483647;
+int pos = -1;
+
+    for (int j=i; j<size; j++) {
+      if(a[j]<min) {
+        min = a[j];
+        pos = j;
+      }
+    }
+    cout << "["<< i << "회차] 배열의 최솟값: " << min << ", 위치: " << pos << endl;
+    int temp = a[i];
+    a[i] = min;
+    a[pos] = temp;
+
+}
+}
+
+void print(int* a, int size) {
+for (int k = 0; k < size; k++) {
+cout << a[k] << " ";
+}
+cout << endl;
+}
+```
+
+과제3의 스택을 라이브러리 없이 구현하는 것은 별도의 글로 정리해 올려야겠다.
