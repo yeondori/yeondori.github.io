@@ -8,16 +8,16 @@ last_modified_at: 2023-09-22
 render_with_liquid: false
 ---
 
-난 그저 github에 그동안 풀었던 백준을 commit 하던 중에 그동안 맞힌 문제 번호와 이름을 README 파일에 잘 정리해보고 싶었을 뿐이었고(알고 보니 백준에서는 크롤링과 스크래핑을 허용하지 않는다고 한다), 문제 번호랑 문제 정보를 오랜만에 스크래핑해서 가져오고 싶었을 뿐이었는데..
+난 그저 github에 그동안 풀었던 백준을 commit 하던 중에 그동안 맞힌 문제 번호와 이름을 README 파일에 잘 정리해보고 싶었을 뿐이었고(알고 보니 백준에서는 크롤링과 스크래핑을 허용하지 않는다고 한다), 문제 번호랑 문제 정보를 스크래핑해서 가져오고 싶었을 뿐이었는데..
 
 오랜만에 jupyter notebook을 실행했더니
 
 ![image](https://github.com/yeondori/yeondori.github.io/assets/93027942/2ed4b613-c136-4611-9b66-8b2dbb8c957b)
 
 비밀번호요? 그게 머드라.....
-아무튼 과거의 내가 할법한 여러 비밀번호도 입력해보고 구글 선생님께도 여쭤보았지만 해결되지 않았다.
+아무튼 과거의 내가 할 법한 여러 비밀번호도 입력해보고 구글 선생님께도 여쭤보았지만 해결되지 않았다.
 
-# 시도1 token과 password 없이 실행
+## **시도1** token과 password 없이 실행
 
 `jupyter notebook --ip='*' --NotebookApp.token='' --NotebookApp.password=''`
 
@@ -30,12 +30,12 @@ render_with_liquid: false
 ![image](https://github.com/yeondori/yeondori.github.io/assets/93027942/2ed4b613-c136-4611-9b66-8b2dbb8c957b)
 ㅋㅋ 어 그래도 안돼~
 
-# 시도2 jupyter notebook password, jupyter server password
+## **시도2** jupyter notebook password, jupyter server password
 
 jupyter notebook password나 jupyter server password를 터미널에 입력하면 똑같이 비밀번호를 설정할 수 있는데 예 그래도 안됩니다..
 /Users/jeong-yeonseo/.jupyter/에 있는 jupyter_server_config.json 파일이나 jupyter_notebook_config.json에 있는 비밀번호를 입력해도 바뀌지 않았다..
 
-# 해결 설정파일 재설정
+## **해결** 설정파일 재설정
 
 터미널에 `jupyter notebook --config=custom_config.py` 를 입력하면 기본 설정파일이 재지정된다!
 입력했더니 자동으로 jupyter notebook이 실행됐고, 정상적으로 수행되었다.
