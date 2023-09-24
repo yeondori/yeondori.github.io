@@ -158,6 +158,7 @@ int main()  {
 ### 출력 결과
 
 ![image](https://github.com/yeondori/yeondori.github.io/assets/93027942/ea93e89c-5b0d-40ee-91ba-4b9eb2742de1)
+
 순서대로 cross out 전의 스도쿠, cross out 후의 스도쿠, 스도쿠의 candidate
 
 ### 소감문
@@ -170,7 +171,7 @@ int main()  {
 애증의 스도쿠! 매일매일 수업 끝나면 놀리지팩토리로 달려가서 자리 잡고 스도쿠만 주구장창 붙잡고 있던 과거 그 시절은 몇년이 지나도 잊지 못할 거고,, C++을 D+ 맞은 실력으로 이걸 해냈다는 게 아직도 너무나 자랑스럽고 대견하다🥲
 네이키드 싱글은 답을 찾고자 하는 해당 셀에 대해 행과 열, 그리고 그 셀이 속해 있는 박스(9*9) 내에 등장하지 않은 숫자가 유일할 때를 의미한다. 예를 들어 다음의 그림에서 행과 열, 박스가 교차하는 지점에서 오직 6만 해답이 될 수 있다. 이러한 셀을 네이키드 싱글이라고 한다.
 
-![image]((https://github.com/yeondori/yeondori.github.io/assets/93027942/1a67139e-b817-4392-8ca8-0bd086efc7e4) [참고](https://m.blog.naver.com/roty22/220697379898)
+![image](https://github.com/yeondori/yeondori.github.io/assets/93027942/1a67139e-b817-4392-8ca8-0bd086efc7e4) [참고](https://m.blog.naver.com/roty22/220697379898)
 
 수행 순서는 다음과 같다.
 - 힌트 스택에서 Pop으로 힌트를 가져온다.
@@ -178,3 +179,4 @@ int main()  {
 - cross out이 모두 끝나면 카운트가 1인 셀의 candidate를 확인해 0인 곳의 index를 바탕으로 솔루션을 등록하고 힌트 스택에 해당 셀을 push한다.
 - 위와 같은 과정을 힌트 스택을 전부 탐색할 때까지 반복한다.
 
+바로 다음주 과제가 히든 싱글이고 이 문제는 naked single이 없는 문제여서 7번쨰 과제에서 한꺼번해 수정해서 올려야할 듯 싶다!
