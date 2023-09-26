@@ -126,10 +126,19 @@ tail_includes:
 
         {{ site.data.locales[lang].copyright.license.template | replace: ':LICENSE_NAME', _replacement }}
       {% endif %}
+
     </div>
 
     {% include post-sharing.html lang=lang %}
   </div>
   <!-- .post-tail-bottom -->
+  <script src="https://utteranc.es/client.js"
+          repo="yeondori/yeondori.github.io"
+          issue-term="url"
+          theme="preferred-color-scheme"
+          crossorigin="anonymous"
+          async>
+  </script>
+
 </div>
 <!-- div.post-tail-wrapper -->
