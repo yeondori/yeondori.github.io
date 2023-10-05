@@ -129,11 +129,78 @@ STL을 열심히 배워서 잘 활용해 보고싶다고 생각했습니다.
 
 스도쿠 이후로는 STL 진도를 나갔었는데 과제 난이도가 비교적 쉬워져서 좀 더 수월하게 과제를 했던 기억이 있다.
 
+8번째 과제였던 Bubble Sort는 파일이 날라가서 찾지 못했는데 이번 과제에 코드가 아직 남아있어서 다행이다... 참고로 Bubble Sort는 순차적으로 배열 내에 있는 두 값을 비교하며 더 큰 값을 뒤로 보내는 방식의 정렬 방법이다. 
+첫번째 탐색이 끝나면 가장 큰 값이 배열의 끝으로 오기 때문에 두번째 탐색을 할 때는 배열의 마지막 값은 비교하지 않아도 되고, 탐색이 수행될 때마다 탐색해야 할 값은 하나씩 줄게 되는 특징이 있다.
 
-8번째 과제였던 Bubble Sort는 파일이 날라가서 찾지 못했는데 이번 과제에 코드가 아직 남아있어서 다행이다...
-Bubble Sort는 순차적으로 배열 내에 있는 두 값을 비교하며 더 큰 값을 뒤로 보내는 방식의 정렬 방법이다. 첫번째 탐색이 끝나면 가장 큰 값이 배열의 끝으로 오기 때문에 두번째 탐색을 할 때는 배열의 마지막 값은 비교하지 않아도 되고, 탐색이 수행될 때마다 탐색해야 할 값은 하나씩 줄게 된다.
+Bubble Sort 보다는 Unique 부분에서 불필요하게 for문이 중첩되어 있는 것 같아서 수정해보았다. 
+정렬되어 있는 배열이 주어진다고 했을 때, 첫번째값을 x에 담아두고 순차적으로 탐색하면서 x와 값이 같지 않아지는 경우에 새로운 배열에 x값을 저장한 뒤 해당 값으로 x를 업데이트하는 식으로 수정했다.
 
+코드를 수정하면서 포인트 부분에 대한 이해도가 많이 부족한 걸 느껴서 다음 게시물에서는 포인트를 본격적으로 공부하고 정리해볼 예정이다.
 
-(수정중)
+```cpp
+#include<iostream>
+using namespace std;
 
+void swap(int a[], int j) {
+int temp = a[j];
+a[j] = a[j + 1];
+a[j + 1] = temp;
+}
 
+void BubbleSort(int a[], int size) {
+    int last = size;
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < last - 1; j++) {
+            if (a[j] > a[j + 1]) {
+                swap(a, j);
+              }
+        }
+    last--;
+    }
+}
+
+void print(const int * a, int size) {
+    cout << "배열 " << endl;
+    for (int i = 0; i < size; i++) {
+        cout << a[i] << " " ;
+    }
+}
+
+void unique(const int * a, int size) {
+
+    int uniqueArr[size];
+    
+    int x = a[0];
+    int idx = 0;
+    
+    for (int i=0; i<size; i++) {
+    
+        if (a[i] != x) {
+          uniqueArr[idx] = x;
+          x = a[i];
+          idx++;
+        }
+    
+        if (i==size-1 && a[i-1]!=a[i]) {
+          uniqueArr[idx] = x;
+          idx++;
+        }
+    }  
+    print(uniqueArr,idx);
+}
+
+int main()  {
+    int a[8] = { 10, 100, 200, 10, 30, 10, 40, 10 };
+    print(a, 8);
+    cout << endl << "Bubble Sort 이후 " << endl;
+    BubbleSort(a, 8);
+    print(a,8);
+    cout << endl << "Unique 이후 " << endl;
+    unique(a, 8);
+    return 0;
+}
+```
+
+## ++ STL
+표준 템플릿 라이브러리(STL: Standard Template Library)는 C++을 위한 라이브러리로서 알고리즘, 컨테이너, 함수자 그리고 반복자라고 불리는 네 가지의 구성 요소를 제공한다.
+[참고](https://ko.wikipedia.org/wiki/%ED%91%9C%EC%A4%80_%ED%85%9C%ED%94%8C%EB%A6%BF_%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC)
