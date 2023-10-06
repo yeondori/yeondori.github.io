@@ -1,7 +1,7 @@
 ---
-title: "[Spring][강의] 스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술"
+title: "[강의] 스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술"
 excerpt: "인프런 강의 복습"
-categories: [Spring, Lecture, Hello-Spring]
+categories: [Inflearn, Hello-Spring]
 tags: [Spring]
 date: 2023-09-20
 last_modified_at: 2023-09-20
