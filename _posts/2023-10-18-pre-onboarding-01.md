@@ -1,6 +1,6 @@
 ---
-title: "[과제]원티드 프리온보딩"
-excerpt: "원티드 프리온보딩 과제 수행 01"
+title: "[프로젝트]원티드 프리온보딩 과제 수행 01"
+excerpt: "원티드 프리온보딩 과제 수행 과정 기록"
 categories: [Spring, Pre-onboarding]
 tags: [Spring]
 date: 2023-10-18
@@ -15,7 +15,7 @@ render_with_liquid: false
 **'할 수 있을 것 같은데?'** 로 시작했다가 **'할 수 있나..?'** 가 되고 결국 마감 기한에 겨우 맞춰서  **'한 건가...?'** 로 끝난 나의 첫 스프링 프로젝트. 지금 정리해두지 않으면 또 미뤄둘 것 같아서 제출하자마자 정리해보는 중!
 
 프로젝트는 [🚀여기🚀](https://github.com/yeondori/wanted-pre-onboarding-backend)에서 확인할 수 있따.
-요구사항과 시연 모두 README에 심혈을 기울여 작성해 두었으니 중복되는 부분은 생략하거나 간단히 넘어가도록 하겠다.
+요구사항과 시연 모두 조잡하지만 나름 README에 심혈을 기울여 작성해 두었다.
 
 ## 과제 설명
 
@@ -140,6 +140,7 @@ Getter와 Setter를 생성하는 작업이 번거로워서 @Data 어노테이션
 
 초반에 스프링에서 계속 쿼리를 인식하지 못하는 오류가 발생했다.
 
+**application.properties**
 ```properties
 spring.jpa.defer-datasource-initialization=true
 spring.sql.init.mode: always
