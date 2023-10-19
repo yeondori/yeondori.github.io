@@ -1,5 +1,5 @@
 ---
-title: "[프로젝트]원티드 프리온보딩 과제 수행 02"
+title: "[프로젝트]원티드 프리온보딩 과제 수행 02 기능 구현"
 excerpt: "원티드 프리온보딩 과제 수행 과정 기록"
 categories: [Spring, Pre-onboarding]
 tags: [Spring]
@@ -10,6 +10,7 @@ render_with_liquid: false
 # [프리온보딩 인턴십 수행과제](https://bow-hair-db3.notion.site/1850bca26fda4e0ca1410df270c03409)
 
 프로젝트는 [🚀여기🚀](https://github.com/yeondori/wanted-pre-onboarding-backend)에서 확인할 수 있다.
+트러블 슈팅에 관해서는 [[프로젝트]원티드 프리온보딩 과제 수행 03](https://yeondori.github.io/posts/pre-onboarding-03/) 여기서 한번에 다루고 있다!
 
 ## 과제 수행 과정
 

@@ -1,5 +1,5 @@
 ---
-title: "[프로젝트]원티드 프리온보딩 과제 수행 03"
+title: "[프로젝트]원티드 프리온보딩 과제 수행 03 트러블 슈팅 및 정리"
 excerpt: "원티드 프리온보딩 과제 수행 과정 기록"
 categories: [Spring, Pre-onboarding]
 tags: [Spring]
@@ -134,6 +134,8 @@ RESTful 강의에서 JPA를 사용할 때는 @RestController를 붙인다고 배
 3. Entity 연관관계, 메소드 개선
 
 4. 불필요한 코드 정리 및 변수명 통일 작업
+
+5. 도메인, 계층 구조 설계 검토 
 
 ## 앞으로 더 공부해볼 것
 
