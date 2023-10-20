@@ -707,5 +707,5 @@ PostRepository에 구현되어 있다.
 [실행 예시]
 ![image](https://github.com/yeondori/yeondori.github.io/assets/93027942/779b233b-31da-45af-9e0f-55e88d187cdb)
 
-드디어 모든 기능 소게가 끝났다!! 
+드디어 모든 기능 소개가 끝났다!! 
 원래는 게시글 하나로 프로젝트를 정리하려고 했지만 너무나 욕심이었고.. to be continued....
