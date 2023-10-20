@@ -4,7 +4,7 @@ excerpt: "원티드 프리온보딩 과제 수행 과정 기록"
 categories: [Spring, Pre-onboarding]
 tags: [Spring]
 date: 2023-10-18
-last_modified_at: 2023-10-18
+last_modified_at: 2023-10-20
 render_with_liquid: false
 ---
 # [프리온보딩 인턴십 수행과제](https://bow-hair-db3.notion.site/1850bca26fda4e0ca1410df270c03409)
@@ -122,7 +122,7 @@ RESTful 강의에서 JPA를 사용할 때는 @RestController를 붙인다고 배
 
 ## Develop
 
-아쉬운 점이나 더 추가하고 싶은 기능
+보완할 점이나 더 추가하고 싶은 기능
 
 1. Test 
    
@@ -135,7 +135,9 @@ RESTful 강의에서 JPA를 사용할 때는 @RestController를 붙인다고 배
 
 4. 불필요한 코드 정리 및 변수명 통일 작업
 
-5. 도메인, 계층 구조 설계 검토 
+5. 도메인, 계층 구조 설계 검토 + DTO
+
++ 사용한 계층 구조에 대해서 각 계층이 어떤 역할이며, 어떤 객체가 어떤 계층에 담겨야 하고 그렇게 되었을 때 뭐가 좋은지?
 
 ## 앞으로 더 공부해볼 것
 
@@ -143,3 +145,8 @@ RESTful 강의에서 JPA를 사용할 때는 @RestController를 붙인다고 배
 
 
 2. Git 커밋 인벤션 [참고 블로그](https://velog.io/@shin6403/Git-git-%EC%BB%A4%EB%B0%8B-%EC%BB%A8%EB%B2%A4%EC%85%98-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0)
+
+3. Gitignore
+
+
+++ 천재 개발자 최야호씨에게 무한한 감사
