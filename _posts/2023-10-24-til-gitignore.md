@@ -90,13 +90,12 @@ Git는 작업 트리의 .gitignore 파일에 액세스할 때 심볼릭 링크�
 | `foo/ `                   | 디렉터리 foo와 그 아래의 경로를 무시하지만 일반 파일이나 심볼릭 링크 foo는 무시하지 않는다.                                                                              |
 | `doc/frotz`, `/doc/frotz` | 같은 의미이다. 패턴에 이미 중간 슬래시가 있는 경우 선행 슬래시는 관련이 없으며,                                                                                       |
 | `foo/* `                  | foo/test.json (파일), foo/bar (디렉토리) 등을 무시한다. 그러나 foo/bar/hello.c (파일)은 무시하지 않는다.                                                      |
-| `foo/* `                  | foo/test.json (파일), foo/bar (디렉토리) 등을 무시한다. 그러나 foo/bar/hello.c (파일)은 무시하지 않는다.                                                      |
 | `*.json `                 | 모든 json 확장자 파일을 무시한다.                                                                                                                |
  
 
 ## Conclusion
 원격 저장소에서는 관리하지 않아도될 idea나 gradle 관련 파일들이 함께 push되는 것을 막기 위해서 gitignore를 사용한다. 
-프로젝트에서 관리가 필요하지 않은, 로컬 개발 환경에 종속적인 파일들을 git 추적 대상에서 제외시키기 위해 gitignore 파일을 이용하여 관리한다.
+다시 말해서, 프로젝트에서 관리가 필요하지 않은, 로컬 개발 환경에 종속적인 파일들을 git 추적 대상에서 제외시키기 위해 gitignore 파일을 이용하여 관리한다.
 
 [.gitignore 적용하기](https://velog.io/@psk84/.gitignore-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0)
 
