@@ -1,7 +1,7 @@
 ---
-title: "[Keyword] Git Commit Convention"
+title: "[Git] Git Commit Convention"
 excerpt: "2023.10.23"
-categories: [1Day-1Keyword]
+categories: [1Day-1Keyword, Git]
 tags: [Commit, git]
 date: 2023-10-23
 last_modified_at: 2023-10-23
@@ -118,7 +118,7 @@ render_with_liquid: false
   
 `Fixes: #45 Related to: #34, #23`
 
-## How?
+# How?
 
 앞으로 어떻게 적용할 것인가! 
 버전 관리와 가독성을 위해 커밋 컨벤션에 맞춰 커밋을 하도록 하겠읍니다...
