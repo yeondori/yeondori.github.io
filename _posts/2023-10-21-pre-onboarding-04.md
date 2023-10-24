@@ -116,15 +116,15 @@ render_with_liquid: false
 
 ## 더 공부할 것
 
-### @RestController vs @Controller
+- [ ] @RestController vs @Controller
 
-### Git Convention
+- [x] [Git Commit Convention](https://yeondori.github.io/posts/til-commit-convention/#type)
 
-### Gitignore
+- [x] [Gitignore](https://yeondori.github.io/posts/til-gitignore) 
 
-### Stream
+- [ ] Stream
 
-### TDD
+- [ ] TDD
 
 ## 고민해볼 사항
 ### @Transactional, Service에서 필요한가?
