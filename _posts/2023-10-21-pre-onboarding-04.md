@@ -122,7 +122,7 @@ render_with_liquid: false
 
 - [x] [Gitignore](https://yeondori.github.io/posts/til-gitignore) 
 
-- [ ] Stream
+- [x] [Stream](https://yeondori.github.io/posts/til-stream/)
 
 - [ ] TDD
 
