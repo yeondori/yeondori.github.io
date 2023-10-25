@@ -110,6 +110,7 @@ render_with_liquid: false
 
 ## 리팩터링 
 
+글이 길어질 것 같아 [05 프로젝트 리팩터링](https://yeondori.github.io/posts/pre-onboarding-05/) 게시물에서 따로 다루고자 한다.
 
 ## 테스트 코드 작성
 
