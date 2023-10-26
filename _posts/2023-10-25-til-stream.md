@@ -1,5 +1,5 @@
 ---
-title: "[Java] Stream"
+title: "[Keyword][Java] Stream"
 excerpt: "2023.10.25"
 categories: [1Day-1Keyword, Java]
 tags: [java, stream]

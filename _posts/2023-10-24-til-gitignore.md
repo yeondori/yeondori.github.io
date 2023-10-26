@@ -1,5 +1,5 @@
 ---
-title: "[Git] Gitignore"
+title: "[Keyword][Git] Gitignore"
 excerpt: "2023.10.24"
 categories: [1Day-1Keyword, Git]
 tags: [git]

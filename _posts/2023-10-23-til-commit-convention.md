@@ -1,5 +1,5 @@
 ---
-title: "[Git] Git Commit Convention"
+title: "[Keyword][Git] Git Commit Convention"
 excerpt: "2023.10.23"
 categories: [1Day-1Keyword, Git]
 tags: [Commit, git]
