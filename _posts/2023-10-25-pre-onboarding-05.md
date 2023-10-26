@@ -3,8 +3,8 @@ title: "[프로젝트]원티드 프리온보딩 과제 수행 05 프로젝트 �
 excerpt: "원티드 프리온보딩 과제 수행 과정 기록"
 categories: [Spring, Pre-onboarding]
 tags: [Spring]
-date: 2023-10-21
-last_modified_at: 2023-10-21
+date: 2023-10-25
+last_modified_at: 2023-10-26
 render_with_liquid: false
 ---
 # [프리온보딩 인턴십 수행과제](https://bow-hair-db3.notion.site/1850bca26fda4e0ca1410df270c03409)
