@@ -90,7 +90,8 @@ render_with_liquid: false
   ```
 
 - getJobPostingIDList() 메서드 위치 조정 및 수정 
-  Company 내부에 정의되어 있는 메서드였는데 기능상 레파지토리에 있는 것이 적절할 것 같다는 피드백을 들어 위치를 이동시켰다. 
+
+  getJobPostingIDList()는 Company 내부에 정의되어 있는 메서드였는데 기능상 레파지토리에 있는 것이 적절할 것 같다는 피드백을 들어 위치를 이동시켰다. 
     ```java
     public List<Long> getJobPostingIdList() {
         List<Long> idList = new ArrayList<>();
@@ -101,5 +102,5 @@ render_with_liquid: false
     }
     ```
   그러나 레파지토리는 현재 JpaRepository를 상속받는 interface여서 body를 가질 수 없었다. 
-  따라서 @Query로 member id리스트를 가져올 수 있는 방법을 생각해봐야할 것 같다. 우선 자고 내일 해야지
+  따라서 @Query로 member id리스트를 가져올 수 있는 방법을 생각해봐야할 것 같다. 우선 자고 내일 해야정
   
