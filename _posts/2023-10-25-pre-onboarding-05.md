@@ -4,7 +4,7 @@ excerpt: "원티드 프리온보딩 과제 수행 과정 기록"
 categories: [Spring, Pre-onboarding]
 tags: [Spring]
 date: 2023-10-25
-last_modified_at: 2023-10-26
+last_modified_at: 2023-10-29
 render_with_liquid: false
 ---
 # [프리온보딩 인턴십 수행과제](https://bow-hair-db3.notion.site/1850bca26fda4e0ca1410df270c03409)
@@ -120,5 +120,92 @@ render_with_liquid: false
   ```
   메서드에 @Param을 이용해 파라미터를 설정해주었더니 해결되었다.
   `public List<Long> getJobPostingIdList(@Param("companyId") Long companyId);` 
-  
-  
+
+다음으로, postController에 있는 applyForJob의 내용을 수정해주었다.
+
+```java
+  // 채용공고 지원
+  public static final int SUCCESS = 1;
+  public static final int MEMBER_NOT_FOUND = 2;
+  public static final int POST_NOT_FOUND = 3;
+  public static final int ALREADY_APPLIED = 4;
+
+  @PostMapping("/{id}/apply")
+  public String applyForJob(@PathVariable Long id, @RequestParam String memberId, Model model) {
+  Long applicantId = Long.parseLong(memberId);
+  int status = SUCCESS;
+
+        if (memberService.findById(applicantId).isEmpty()) {
+            status = MEMBER_NOT_FOUND;
+        } else {
+            Optional<JobPosting> selectedPost = postService.findById(id);
+            if (!selectedPost.isPresent()) {
+                status = POST_NOT_FOUND;
+            } else {
+                JobPosting jobPosting = selectedPost.get();
+                Member applicant = memberService.findById(applicantId).get();
+                if (applicant.getAppliedPosting() != null) {
+                    status = ALREADY_APPLIED;
+                } else {
+                    applicant.setAppliedPosting(jobPosting);
+                    memberService.save(applicant);
+                    postService.save(jobPosting);
+                }
+            }
+        }
+        model.addAttribute("jobPostingId", id);
+        model.addAttribute("applicantId", applicantId);
+        model.addAttribute("applyStatus", status);
+        return "jobpostings/applyResult";
+  }
+```
+
+컨트롤러보다는 서비스 측면에서 지원을 다루는 게 바람직하다는 피드백을 받아 이를 서비스로 옮겨주었다.
+
+```java
+public ApplyStatus apply(Long postId, Long memberId) {
+
+    Optional<Member> member = memberRepository.findById(memberId);
+    Optional<JobPosting> selectedPost = postRepository.findById(postId);
+
+    if (member.isEmpty()) return MEMBER_NOT_FOUND;
+    if (selectedPost.isEmpty()) return POST_NOT_FOUND;
+    if (member.get().getJobPosting() != null)return ALREADY_APPLIED;
+
+    member.get().setJobPosting(selectedPost.get());
+    memberRepository.save(member.get());
+    postRepository.save(selectedPost.get());
+
+    return SUCCESS;
+}
+```
+
+status는 ApplyStatus라는 별도의 enum을 추가해주었고 기존 코드보다 훨씬 간략하게 작성했다.
+서비스단에서 지원 자격이 있는 멤버가 적절한 지원 공고에 지원한 경우에 이를 저장하고, 모든 경우의 상태코드를 넘겨주는 작업까지 수행한다.
+
+컨트롤러에서는 다음과 같이 채용 공고와 멤버의 id, 지원 상태를 html에 넘겨주게 된다.
+```
+// 채용공고 지원
+@PostMapping("/{postId}/apply")
+public String applyForJob(@PathVariable Long postId, @RequestParam String memberId, Model model) {
+model.addAttribute("jobPostingId", postId);
+model.addAttribute("memberId", memberId);
+model.addAttribute("applyStatus", postService.apply(postId, Long.parseLong(memberId)));
+return "jobpostings/applyResult";
+}
+```
+
+4. URI 변수명 변경
+
+기존의 post, company 컨트롤러에서는 각각의 id를 "postId", "companyId" 등으로 구분하지 않고 "id"로 통일해두었다.
+이는 충분히 혼란을 줄 수 있어 다음과 같이 변수명을 수정해주었다.
+
+![image](https://github.com/yeondori/yeondori.github.io/assets/93027942/cabc6807-2640-408e-987c-986f01e4bca5)
+
+# 소감
+
+드디어 대략적인 리팩터링 작업이 끝났지만 사실 아직도 만족스럽지 않은 부분이 많다.
+특히, 프로젝트를 진행할 때까지만 해도 서비스와 컨트롤러를 무조건 도메인과 같은 단위로 수행해야하는 줄 알았다.
+아마 이 부분에서 비롯된 오해가 서비스와 레포지토리, 컨트롤러 간의 책임과 역할의 경계를 모호하게 만들지 않았나 싶다.
+이 부분까지 완전히 수정하는 것은 무리가 있을 것 같고 책임과 역할에 대한 큰 교훈을 얻고 다음 프로젝트를 위한 타산지석으로 남겨두는 걸로...
+다음으로는 간단한 테스트 코드를 작성해 볼 것이다!
