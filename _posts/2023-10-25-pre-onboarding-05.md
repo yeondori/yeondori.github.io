@@ -46,8 +46,9 @@ render_with_liquid: false
 
 ![image](https://github.com/yeondori/wanted-pre-onboarding-backend/assets/93027942/e0e2220b-ac70-41c3-98e6-548186654279)
 
+# 2. for문 -> Stream
 
-- for문 -> Stream
+우선 JobPostingDTO에 있던 for문을 Stream을 이용해 변경해주었다.
 
   ```java
   private List<JobPostingDTO> mapToJobPostingDTOList(List<JobPosting> jobPostings) {
@@ -88,10 +89,10 @@ render_with_liquid: false
                 .collect(Collectors.toList());
   }
   ```
-
+# 3. 메서드 위치 조정 및 수정
 - getJobPostingIDList() 메서드 위치 조정 및 수정 
 
-  getJobPostingIDList()는 Company 내부에 정의되어 있는 메서드였는데 기능상 레파지토리에 있는 것이 적절할 것 같다는 피드백을 들어 위치를 이동시켰다. 
+  getJobPostingIDList()는 Company 내부에 정의되어 있는 메서드였는데 기능상 레퍼지토리에 있는 것이 적절할 것 같다는 피드백을 들어 위치를 이동시켰다. 
     ```java
     public List<Long> getJobPostingIdList() {
         List<Long> idList = new ArrayList<>();
@@ -101,6 +102,23 @@ render_with_liquid: false
         return idList;
     }
     ```
-  그러나 레파지토리는 현재 JpaRepository를 상속받는 interface여서 body를 가질 수 없었다. 
-  따라서 @Query로 member id리스트를 가져올 수 있는 방법을 생각해봐야할 것 같다. 우선 자고 내일 해야정
+  그러나 레퍼지토리는 현재 JpaRepository를 상속받는 interface여서 body를 가질 수 없었다. 
+  따라서 @Query로 member id리스트를 가져올 수 있는 방법으로 방식을 수정해주었다.
+  ```java
+  @Repository
+  public interface CompanyRepository extends JpaRepository<Company, Long> {
+  
+      @Query("SELECT p.id FROM JobPosting p where p.company.id = :companyId")
+      public List<Long> getJobPostingIdList(Long companyId);
+  }
+  ```
+  그러나 다음과 같은 에러가 발생했고..
+  ```
+  2023-10-29T22:30:06.369+09:00 ERROR 20824 --- [nio-8081-exec-3] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.InvalidDataAccessApiUsageException: For queries with named parameters you need to provide names for method parameters; Use @Param for query method parameters, or when on Java 8+ use the javac flag -parameters] with root cause
+
+  java.lang.IllegalStateException: For queries with named parameters you need to provide names for method parameters; Use @Param for query method parameters, or when on Java 8+ use the javac flag -parameters
+  ```
+  메서드에 @Param을 이용해 파라미터를 설정해주었더니 해결되었다.
+  `public List<Long> getJobPostingIdList(@Param("companyId") Long companyId);` 
+  
   
