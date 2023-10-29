@@ -1,7 +1,7 @@
 ---
 title: "[프로젝트]원티드 프리온보딩 과제 수행 03 트러블 슈팅 및 정리"
 excerpt: "원티드 프리온보딩 과제 수행 과정 기록"
-categories: [Spring, Pre-onboarding]
+categories: [Project, Wanted-pre-onboarding]
 tags: [Spring]
 date: 2023-10-18
 last_modified_at: 2023-10-20

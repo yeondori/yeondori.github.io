@@ -1,7 +1,7 @@
 ---
 title: "[프로젝트]원티드 프리온보딩 과제 수행 05 프로젝트 리팩터링"
 excerpt: "원티드 프리온보딩 과제 수행 과정 기록"
-categories: [Spring, Pre-onboarding]
+categories: [Project, Wanted-pre-onboarding]
 tags: [Spring]
 date: 2023-10-25
 last_modified_at: 2023-10-29
