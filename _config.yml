@@ -75,8 +75,8 @@ theme_mode: # [light|dark]
 img_cdn: "/"
 
 # the avatar on sidebar, support local or CORS resources
-#avatar: https://p7.hiclipart.com/preview/636/251/800/wallace-and-gromit-animation-film-wallace-huo-thumbnail.jpg
-avatar: "assets/img/imdori.png"
+avatar: https://p7.hiclipart.com/preview/636/251/800/wallace-and-gromit-animation-film-wallace-huo-thumbnail.jpg
+#avatar: "assets/img/imdori.png"
 # boolean type, the global switch for TOC in posts.
 toc:  true
 
