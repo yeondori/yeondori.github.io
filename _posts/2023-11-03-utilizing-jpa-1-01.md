@@ -196,4 +196,12 @@ org.junit.runners.model.InvalidTestClassError: Invalid test class 'jpabook.jpash
 ```
 어이없게도 그냥 public이 지워져있어서 그런 거였움,,
 
+## 섹션 7. 웹 계층 개발
+### 버전 에러
 
+MemberForm에서 @NotEmpty 어노테이션을 붙여줘야 하는데 등록이 되지 않았다.
+Validation Starter 의존성은 더 이상 웹 스타터 의존성에 포함되지 않으므로 Build.gradle 파일에 다음을 수동으로 추가해주니 해결 되었다.
+
+`implementation 'org.springframework.boot:spring-boot-starter-validation'`
+
+드디어 완강했다!
