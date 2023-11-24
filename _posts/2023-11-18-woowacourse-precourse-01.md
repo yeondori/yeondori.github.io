@@ -1,6 +1,6 @@
 ---
 title: "[우테코 프리코스]우테코 도전기"
-excerpt: "인프런 강의 복습"
+excerpt: "우테코 프리코스 도전기"
 categories: [Project, woowacourse-precourse]
 tags: [우테코 프리코스]
 date: 2023-11-18
