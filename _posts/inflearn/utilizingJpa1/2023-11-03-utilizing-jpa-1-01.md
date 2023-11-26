@@ -1,7 +1,7 @@
 ---
 title: "[강의] 실전! 스프링 부트와 JPA 활용1 - 웹 애플리케이션 개발 - trouble shooting"
 excerpt: "인프런 강의 복습"
-categories: [Inflearn, JPA-UTIL-1]
+categories: [Inflearn, 실전! 스프링 부트와 JPA 활용1]
 tags: [JPA]
 date: 2023-11-03
 last_modified_at: 2023-11-03

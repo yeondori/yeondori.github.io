@@ -1,7 +1,7 @@
 ---
 title: "[강의] 실전! 스프링 부트와 JPA 활용2 - API 개발과 성능 최적화 - trouble shooting"
 excerpt: "인프런 강의 복습"
-categories: [Inflearn, JPA-UTIL-2]
+categories: [Inflearn, 실전! 스프링 부트와 JPA 활용2]
 tags: [JPA]
 date: 2023-11-17
 last_modified_at: 2023-11-17

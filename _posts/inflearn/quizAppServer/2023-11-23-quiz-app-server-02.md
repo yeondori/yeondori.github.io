@@ -1,7 +1,7 @@
 ---
 title: "[강의] 플러터와 장고로 1시간만에 퀴즈 앱/서버 만들기 - 프로젝트 환경 세팅"
 excerpt: "인프런 강의 복습"
-categories: [Inflearn, Quiz-App]
+categories: [Inflearn, 플러터와 장고로 1시간만에 퀴즈 앱/서버 만들기]
 tags: [플러터와 장고로 1시간만에 퀴즈 앱/서버 만들기 무작정 풀스택]
 date: 2023-11-22
 last_modified_at: 2023-11-22

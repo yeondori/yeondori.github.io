@@ -1,7 +1,7 @@
 ---
-title: "[강의] 스프링 핵심 원리 - 기본편 09"
+title: "[강의] 스프링 핵심 원리 - 기본편 09 빈 스코프"
 excerpt: "인프런 강의 복습"
-categories: [Inflearn, Spring-Basic]
+categories: [Inflearn, 스프링 핵심 원리 - 기본편]
 tags: [Spring]
 date: 2023-09-21
 last_modified_at: 2023-09-22
