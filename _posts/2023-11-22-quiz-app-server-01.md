@@ -2,7 +2,7 @@
 title: "[강의] 플러터와 장고로 1시간만에 퀴즈 앱/서버 만들기 - Trouble Shooting"
 excerpt: "인프런 강의 복습"
 categories: [Inflearn, Quiz-App]
-tags: [플러터와 장고로 1시간만에 퀴즈 앱/서버 만들기 [무작정 풀스택]]
+tags: [플러터와 장고로 1시간만에 퀴즈 앱/서버 만들기 무작정 풀스택]
 date: 2023-11-23
 last_modified_at: 2023-11-23
 render_with_liquid: false
