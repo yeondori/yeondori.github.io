@@ -1,10 +1,10 @@
 ---
-title: "[강의] 플러터와 장고로 1시간만에 퀴즈 앱/서버 만들기 - Trouble Shooting"
+title: "[강의] 플러터와 장고로 1시간만에 퀴즈 앱/서버 만들기 - 프로젝트 환경 세팅"
 excerpt: "인프런 강의 복습"
 categories: [Inflearn, 플러터와 장고로 1시간만에 퀴즈 앱/서버 만들기]
 tags: [플러터와 장고로 1시간만에 퀴즈 앱/서버 만들기 무작정 풀스택]
-date: 2023-11-23
-last_modified_at: 2023-11-23
+date: 2023-11-22
+last_modified_at: 2023-11-22
 render_with_liquid: false
 ---
 
@@ -12,137 +12,52 @@ render_with_liquid: false
 
 # 플러터와 장고로 1시간만에 퀴즈 앱/서버 만들기 [무작정 풀스택] [강의](https://www.inflearn.com/course/%ED%94%8C%EB%9F%AC%ED%84%B0-%EC%9E%A5%EA%B3%A0-%ED%80%B4%EC%A6%88%EC%95%B1-%EC%84%9C%EB%B2%84-%ED%92%80%EC%8A%A4%ED%83%9D/dashboard)
 
-강의와의 버전 차이로 인해 발생하는 오류가 있어 기록해보고자 한다.
+## 0. 환경 설정
+인프런 강의 플러터와 장고로 1시간만에 퀴즈 앱/서버 만들기를 학습하기 위해 환경 설정을 해주었다.
 
-## screen_home.dart
+순서는 다음과 같이 진행했다.
 
-### RaisedButton -> ElevatedButton
+1. IntelliJ에서 Android SDK 설치
+2. IntelliJ flutter 플러그인 설치 
+3. [flutter SDK](https://docs.flutter.dev/get-started/install/macos) 설치
+4. flutter 환경변수 설정
 
-RaisedButton이 ElevatedButton으로 변경됨에 따라 버튼 색상을 
-`style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(Colors.deepPurple))` 식으로 변경해주어야 한다.
+다음의 사이트들을 참고해 진행했다.
 
-## model_quiz.dart
+[크로스플랫폼 개발을 위한 Flutter 시작 가이드 - IntelliJ 환경 설정과 기본 앱 구축](https://aday7.tistory.com/entry/%ED%81%AC%EB%A1%9C%EC%8A%A4-%ED%94%8C%EB%9E%AB%ED%8F%BC-%EA%B0%9C%EB%B0%9C%EC%9D%84-%EC%9C%84%ED%95%9C-Flutter-%EC%8B%9C%EC%9E%91-%EA%B0%80%EC%9D%B4%EB%93%9C-IntelliJ-%ED%99%98%EA%B2%BD-%EC%84%A4%EC%A0%95%EA%B3%BC-%EA%B8%B0%EB%B3%B8-%EC%95%B1-%EA%B5%AC%EC%B6%95)  
+[맥에서 플러터 설치 및 환경변수 설정하기](https://blog.naver.com/bluecrossing/222277992718)
 
-```dart
-class Quiz {
-  String title;
-  List<String> candidate;
-  int answer;
-
-  Quiz({this.title, this.candidate, this.answer})
-
-  Quiz.fromMap(Map<String, dynamic> map)
-      : title = map['title'],
-        candidate= map['candidates'],
-        answer = map['answer']
-}
-```
-
-기존의 코드에서 생성자 부분에 required를 추가해주어야 한다.
-
-`Quiz({required this.title, required this.candidate, required this.answer});`
-
-참고로 모든 this 쪽에는 required를 붙여주어야 하며 이 부분은 앞으로 생략한다!
-
-## flutter_swiper
-
-강의에서는 화면을 옆으로 넘기는 기능때문에 flutter_swiper를 설치한다.
-이때 버전 부분을 비운 채로 `flutter_swiper: 1.0.2`를 pubspec.yaml에 작성하게 되는데 다음과 같은 오류가 발생한다.
+정상적으로 설정이 완료된 줄 알았으나 
 
 ```
-he current Dart SDK version is 3.2.0.
-
-Because quiz_app depends on flutter_swiper any which doesn't support null safety, version solving failed.
-
-The lower bound of "sdk: '>=2.0.0-dev.48.0 <3.0.0'" must be 2.12.0 or higher to enable null safety.
+Unhandled exception:
+Exception: Flutter failed to create a directory at "/Users/jeong-yeonseo/.config/flutter".
+Please ensure that the SDK and/or project is installed in a location that has read/write permissions for the current user.
 ```
 
-이는 null-safety를 지원하지 않아 발생하는 문제로, 찾아보니 null-safety를 지원하는 라이브러리가 존재했다.
-=> `flutter_swiper_null_safety:` 를 추가해주면 된다!
+이런 오류가 발생했고,
+https://www.fluttercampus.com/guide/286/flutter-failed-to-write-to-a-file/
 
-[참고](https://velog.io/@ejayjeon/Flutter-Error-Cannot-run-with-sound-null-safety-because-the-following-dependenciesdont-support-null-safety-%EC%97%90%EB%9F%AC-%ED%95%B4%EA%B2%B0%EB%B2%95)
+여길 참고해 `sudo chown -R <your_username> /flutter_sdk_path/` 로 권한을 부여해도 해결되지 않았다.
 
-## screen_quiz.dart
+![image](https://github.com/yeondori/yeondori.github.io/assets/93027942/b649f993-b2cb-4524-afac-056c18d4e289)
 
-앞의 screen_home과 마찬가지로 raisedButton의 textColor와 Color를 다음과 같이 수정해준다.
+설정에서 '그래도 열기'를 클릭해도 달라지는 건 없었다..
 
+`brew install flutter` 로 설치해봐도 같은 오류가 발생했고 `sudo chown -R jeong-yeonseo /Users/jeong-yeonseo/.config` 로 해결되었다 엉엉
 
-```dart
-child: ElevatedButton(
-  onPressed: _answers[_currentIndex] == -1
-    ? null
-      : () {
-    if (_currentIndex == widget.quizs.length - 1) {// '결과보기' 버튼을 눌렀을 때의 동작
-    } else {
-      _answerState = [false, false, false, false];
-      _currentIndex += 1;
-      _controller.next();
-    }
-  },
-  style: ElevatedButton.styleFrom(
-    textStyle: TextStyle(color: Colors.white),
-    primary: Colors.deepPurple,
-    ),
-  child: _currentIndex == widget.quizs.length - 1
-    ? Text('결과보기')
-    : Text('다음문제'),
-)
-```
+에러 해결 후 터미널에 `flutter doctor`를 입력해 설치해야 할 패키지 목록을 확인할 수 있었고,
 
-## Null 관련
-다음 문제 보기 버튼 만들기 과정에서 다음의 오류가 발생했다.
+Xcode와 Android Studio 등은 다음의 [글](https://velog.io/@juheesvt/Flutter-%EB%A7%A5-OS%EC%97%90%EC%84%9C-%ED%94%8C%EB%9F%AC%ED%84%B0-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0)을 참고해 설치했다.
 
-`Expected a value of type 'List<String>', but got one of type 'Null'`
-
-
-이는 Quiz 클래스의 candidates 필드를 nullable로 선언해준 뒤(List<String>? candidates), (List<String>?)_buildCandidates 메서드에서 각 후보자의 텍스트를 가져올 때, 
-Null 체크 로직을 추가해 해결해주었다.
-
-즉. _buildCandidates 메서드에서 quiz.candidates가 null이 아닌지 확인한 후에 접근하도록 수정한다.
-`text: quiz.candidates?[i] ?? '',  // null-aware 연산자 사용` 
-
-## Heroku 배포
-
-Heroku가 작년부터 유료로 전환되는 이슈로, 강의대로 Heroku로 배포할 수 없게 되었다..
-대신 [레퍼런스](https://cocobi.tistory.com/248)를 참고해 Koyeb으로 배포해보려 했으나,
+나머지는 전부 설치가 됐는데, Xcode만 다음과 같은 문제가 있었다. 
 
 ```
-Build ready to start ▶️
->> Cloning github.com/yeondori/first-flutter-django.git commit sha 1417c5b6080047b91d26620359a8398bf373e204 into /workspace
-Initialized empty Git repository in /workspace/.git/
-From https://github.com/yeondori/first-flutter-django
- * branch            1417c5b6080047b91d26620359a8398bf373e204 -> FETCH_HEAD
-HEAD is now at 1417c5b change python version
-Previous image with name "registry01.prod.koyeb.com/k-5c4c1aed-38b3-4800-96c6-126bd4d637db/50f25658-4615-4107-8b8a-f941949fe5cf:latest" not found
-heroku/python   0.0.0
-heroku/procfile 2.0.1
-Layer cache not found
------> Using Python version specified in runtime.txt
- !     Requested runtime 'Python-3.8.18' is not available for this stack (heroku-20).
- !     For supported versions, see: https://devcenter.heroku.com/articles/python-support
-ERROR: failed to build: exit status 1
-exit status 51
+[!] Xcode - develop for iOS and macOS (Xcode 15.0.1)
+    ✗ Unable to get list of installed Simulator runtimes.
 ```
 
-이런 오류가 발생헀다... 
+`xcodebuild -downloadPlatform iOS` 또는 Xcode를 실행시켜 simulator를 다운받아주면 해결된다.
 
-heroku의 공식 문서에 맞는 python 버전으로 변경해주어도 상황은 같았고, heroku 배포가 안돼서 buildpack 등의 옵션도 무의미했다.
-
-[koyeb 공식 문서](https://www.koyeb.com/docs/build-and-deploy/deploy-with-git)에도 github을 이용한 배포에 관련된 설명이 있으며, 
-[python](https://www.koyeb.com/docs/build-and-deploy/build-from-git/python) runtime 부분에 맞는 버전으로 변경해주었다.
-
-빌드는 성공했는데요!
-
-![image](https://github.com/yeondori/yeondori.github.io/assets/93027942/19306e0d-6111-47bc-922d-82a8126536af)
-
-Instance에서 또다시 난관에 봉착..
-
-가상환경에 gunicorn 설치가 되어 있지 않아 설치한 후 다시 빌드해주었고, Procfile도 `web: gunicorn quiz:app`로 수정했다.
-
-=> 이래도 해결되지 않아 다른 방식 찾아보는 중
-
-## screen_home.dart
-
-로딩중을 표시하기 위한 SnackBar 활용에서 
-
-`_scaffoldKey.currentState!.showSnackBar` -> `ScaffoldMessenger.of(context).showSnackBar` 로 수정했다.
++ brew로 flutter를 설치해봤는데 IntelliJ에서 Flutter 의 SDK 경로를 인식 못해서 삭제하고 위의 방식으로 다시 설치해 주었다. 
++ 사용자 계정 아래 develop 폴더를 만들고 그 안에서 압축을 푼 뒤 환경변수 설정을 해주었더니 위의 오류 없이 잘 인식되었다. 
