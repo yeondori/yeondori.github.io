@@ -1,5 +1,5 @@
 ---
-title: "[강의] Spring Cloud로 개발하는 마이크로서비스 애플리케이션(MSA) - 01 Service Discovery "
+title: "[강의] Spring Cloud로 개발하는 마이크로서비스 애플리케이션(MSA) - 02 API Gateway Service "
 excerpt: "인프런 강의 복습"
 categories: [Inflearn, Spring Cloud로 개발하는 마이크로서비스 애플리케이션(MSA)]
 tags: [Spring Cloud, MSA]
