@@ -243,9 +243,47 @@ manage.py 에도 superUser가 등록되어 있는 것을 분명히 확인했고,
 
 migrate를 실행해도 계속 같은 결과가 나와서 혹시 migrate에 이상이 있나 싶어 migrate파일과 db파일을 지우고 다시 migrate해주었다.
 
-이래도 계속 migrate할 때마다 같은 결과가 반복됐고,, 로컬에선 migrate에 이상이 없는데 서버에서만 계속 migrate 부분에 문제가 있었다.
+이래도 계속 migrate할 때마다 같은 결과가 반복됐고,, (몇번이나 `python manage.py migrate` 를 해줘도 아래처럼 migrate를 적용한다는 뜻)
+```
+$ python manage.py migrate
+WARNING:root:No DATABASE_URL environment variable set, and so no databases setup
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, quiz, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying auth.0012_alter_user_first_name_max_length... OK
+  Applying quiz.0001_initial... OK
+  Applying sessions.0001_initial... OK
+```
+로컬에선 migrate에 이상이 없는데 서버에서만 계속 migrate 부분에 문제가 있었다.
 
-우선 조금 더 찾아보고 koyeb 측에도 물어봐야겠다.......
+-> 해결! 
+
+우선 환경변수는 다 삭제해주었고 서버를 기동시키고 서버의 콘솔에서 migrate를 진행해주었다. 
+koyeb에서 기본으로 `/bin/sh` 경로를 제공해주고, 여기 내부에 manage.py 등이 있어서 나는 여기서 계속 migrate를 해주었다.
+
+그러나 migrate를 해도 db.sqlite3 가 생성되지 않는 것이 이상해 조금 더 둘러보니 app 디렉토리가 있었고,,,,
+
+![image](https://github.com/yeondori/yeondori.github.io/assets/93027942/e956cbe5-922f-4f90-aede-a9cfb4b234a4)
+
+app 디렉토리 내부에서 migrate하니 정상적으로 db.sqlite3 파일이 생성됐고, createsuperuser로 admin 계정을 만든 뒤 정상적으로 작동시킬 수 있게 되었따 흑흑
+
+이거 해결하려고 며칠을 뒤져보고 혹시나해서 aws까지 가입했눈데.. 아무튼 해결되니 좋다.............
 
 ## admin 계정 찾기
 
@@ -267,6 +305,26 @@ migrate를 실행해도 계속 같은 결과가 나와서 혹시 migrate에 이�
 
 ## screen_home.dart
 
-로딩중을 표시하기 위한 SnackBar 활용에서 
+서버의 url을 넣어주는 과정에서 강의 내용대로 다음과 같이 진행하면
+
+```dart
+final response = await http.get('https://quiz-yeondori.koyeb.app/quiz/3/')
+```
+
+The argument type 'String' can't be assigned to the parameter type 'Uri'. 라는 에러가 발생한다. 
+
+```dart
+final Uri url = Uri.parse('https://quiz-yeondori.koyeb.app/quiz/3/');
+final response = await http.get(url);
+```
+
+이런 방식으로 Url 객체를 생성해 전달해주어야 한다. 
+
+
+그리고 로딩중을 표시하기 위한 SnackBar 활용에서는
 
 `_scaffoldKey.currentState!.showSnackBar` -> `ScaffoldMessenger.of(context).showSnackBar` 로 수정했다.
+
+![image](https://github.com/yeondori/yeondori.github.io/assets/93027942/066932e1-2a38-4c9d-bb84-792b14bc8998)
+
+드디어 끝~~~
